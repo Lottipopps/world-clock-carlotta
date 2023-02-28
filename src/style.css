@@ -1,6 +1,56 @@
+body {
+  background: linear-gradient(
+    96.2deg,
+    rgb(255, 230, 112) 10.4%,
+    rgb(255, 100, 100) 43.8%,
+    rgb(0, 93, 219) 105.8%
+  );
+  font-family: "Kalam", cursive;
+}
+.container {
+  background: rgba(255, 255, 255, 0.5);
+  max-width: 600px;
+  padding: 40px 10px;
+  margin: 100px auto;
+  border: 8px ridge rgb(255, 0, 0);
+  border-radius: 30px;
+  box-shadow: 0px 2px 20px 15px rgba(0, 0, 0, 0.2);
+}
 h1 {
   text-align: center;
+  text-shadow: 0px 6px 22px rgba(0, 0, 0, 0.4);
+  font-size: 50px;
+  margin: 15px;
+}
+h2 {
+  color: rgb(0, 60, 255);
+  font-size: 35px;
+  text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.5);
+}
+select {
+  display: block;
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+  padding: 3px 5px;
+  margin: 10px auto;
+  border: 1px solid rgb(255, 0, 0);
+  border-radius: 20px;
 }
 footer {
   text-align: center;
+}
+.city {
+  display: flex;
+  margin: 10px 0;
+  padding: 5px;
+  justify-content: space-between;
+  border-bottom: 2px groove rgba(0, 0, 0, 0.4);
+}
+.date {
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 18px;
+}
+.time {
+  text-shadow: 3px 3px 7px rgba(0, 0, 0, 0.5);
+  font-size: 35px;
 }
