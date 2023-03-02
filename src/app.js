@@ -1,11 +1,6 @@
 function showCities() {
   let citiesElement = document.querySelector("#cities");
-  let cities = [
-    "Europe/Bologna",
-    "America/New_York",
-    "America/Mexico_City",
-    "Australia/Sydney",
-  ];
+  let cities = ["America/New_York", "America/Mexico_City", "Australia/Sydney"];
   citiesElement.innerHTML = cities
     .map(function showCity(city) {
       return `<div class="city" id="${city}">
