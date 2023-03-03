@@ -9,6 +9,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: "Kalam", cursive;
+  height: 100vh;
+  width: 100vw;
 }
 .container {
   background: rgba(255, 255, 255, 0.5);
@@ -79,6 +81,68 @@ footer {
   -webkit-animation-duration: 12s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
+}
+#clock {
+  position: absolute;
+  margin: -80px 450px;
+  width: 75px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(https://dev-to-uploads.s3.amazonaws.com/uploads/articles/sa5ueuzzu2l7j8iv7bk8.jpg);
+  background-size: cover;
+  border: 3px inset rgb(255, 0, 0);
+  border-radius: 50%;
+  z-index: 2;
+}
+#clock::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  border-radius: 50%;
+  margin-left: -2px;
+  margin-top: -2px;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  background: #4d4b63;
+  z-index: 12;
+}
+.hand {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  background: rgb(249, 241, 1);
+  position: absolute;
+  top: 50%;
+  border-radius: 1px;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition-timing-function: ease;
+}
+.hand.hours {
+  margin: 0 19.25%;
+  height: 2.5px;
+  width: 30%;
+  z-index: 3;
+}
+.hand.minutes {
+  margin: 0 9.5%;
+  background: rgb(249, 199, 1);
+  height: 1.5px;
+  z-index: 10;
+  width: 40%;
+}
+.hand.seconds {
+  margin: 0 4%;
+  background: rgb(238, 121, 26);
+  width: 45%;
+  height: 0.5px;
+  z-index: 11;
 }
 
 @keyframes rotate {

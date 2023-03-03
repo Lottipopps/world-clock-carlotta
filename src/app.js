@@ -1,3 +1,18 @@
+function analogClock() {
+  let hoursHand = document.querySelector("#hours");
+  let minutesHand = document.querySelector("#minutes");
+  let secondsHand = document.querySelector("#seconds");
+  let now = new Date();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  let seconds = now.getSeconds();
+  let hoursRotation = (hours / 12) * 360 + (minutes / 60) * 30 + 90;
+  let minutesRotation = (minutes / 60) * 360 + (seconds / 60) * 6 + 90;
+  let secondsRotation = (seconds / 60) * 360 + 90;
+  hoursHand.style.transform = `rotate(${hoursRotation}deg)`;
+  minutesHand.style.transform = `rotate(${minutesRotation}deg)`;
+  secondsHand.style.transform = `rotate(${secondsRotation}deg)`;
+}
 function startInterval() {
   citiesInterval = setInterval(showCities, 1000);
 }
@@ -122,7 +137,6 @@ function openOptions(event) {
     }
   } else {
     showCities();
-    clearInterval(choiceInterval);
     startInterval();
     document.getElementById("africa").style.display = "none";
     document.getElementById("americas").style.display = "none";
@@ -136,8 +150,8 @@ function openOptions(event) {
   }
 }
 function choiceCities(timezone) {
-  let displayArea = document.querySelector("#cities");
   if (timezone.length > 0) {
+    let displayArea = document.querySelector("#cities");
     displayArea.innerHTML = `<div class="city" >
           <div class="date-place">
             <h2>${timezone
@@ -155,10 +169,9 @@ function showTimezone(event) {
   clearInterval(citiesInterval);
   let timezone = event.target.value;
   choiceCities(timezone);
-  choiceInterval = setInterval(() => {
-    choiceCities(timezone);
-  }, 1000);
 }
+analogClock();
+clockInterval = setInterval(analogClock, 1000);
 showCities();
 startInterval();
 let continentSelect = document.querySelector("#continents");
