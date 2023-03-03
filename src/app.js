@@ -36,6 +36,18 @@ function showCities() {
 function openOptions(event) {
   let continent = event.target.value;
   if (continent.length > 0) {
+    if (continent === "current-location") {
+      myTimezone(moment.tz.guess());
+      document.getElementById("africa").style.display = "none";
+      document.getElementById("americas").style.display = "none";
+      document.getElementById("asia").style.display = "none";
+      document.getElementById("australia").style.display = "none";
+      document.getElementById("europe").style.display = "none";
+      document.getElementById("antarctica").style.display = "none";
+      document.getElementById("atlantic").style.display = "none";
+      document.getElementById("indian").style.display = "none";
+      document.getElementById("pacific").style.display = "none";
+    }
     if (continent === "africa") {
       document.getElementById("africa").style.display = "block";
       document.getElementById("americas").style.display = "none";
@@ -164,6 +176,10 @@ function choiceCities(timezone) {
           <div class="time">${moment.tz(timezone).format("HH:mm:ss")}</div>
         </div>`;
   }
+}
+function myTimezone(timezone) {
+  clearInterval(citiesInterval);
+  choiceCities(timezone);
 }
 function showTimezone(event) {
   clearInterval(citiesInterval);
