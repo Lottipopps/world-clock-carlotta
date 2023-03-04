@@ -14,6 +14,10 @@ function analogClock() {
   secondsHand.style.transform = `rotate(${secondsRotation}deg)`;
 }
 function startInterval() {
+  analogClock();
+  setInterval(analogClock, 1000);
+  showCities();
+
   citiesInterval = setInterval(showCities, 1000);
 }
 function showCities() {
@@ -148,8 +152,6 @@ function openOptions(event) {
       document.getElementById("pacific").style.display = "block";
     }
   } else {
-    showCities();
-    startInterval();
     document.getElementById("africa").style.display = "none";
     document.getElementById("americas").style.display = "none";
     document.getElementById("asia").style.display = "none";
@@ -182,14 +184,16 @@ function myTimezone(timezone) {
   choiceCities(timezone);
 }
 function showTimezone(event) {
-  clearInterval(citiesInterval);
   let timezone = event.target.value;
+  clearInterval(citiesInterval);
   choiceCities(timezone);
+  citiesInterval = setInterval(() => {
+    choiceCities(timezone);
+  }, 1000);
 }
-analogClock();
-clockInterval = setInterval(analogClock, 1000);
-showCities();
+let citiesInterval = null;
 startInterval();
+
 let continentSelect = document.querySelector("#continents");
 continentSelect.addEventListener("change", openOptions);
 
